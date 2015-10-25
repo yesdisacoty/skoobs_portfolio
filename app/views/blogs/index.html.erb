@@ -1,4 +1,32 @@
-<h1>Posts</h1>
+<head>
+    
+</head>
+<body>
+  <div class="blog">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Kubi', root_path, class: 'navbar-brand' %>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "About", about_path %></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><%= link_to "Blog", blogs_path %></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <br><br>
 
 <% @blogs.each do |blog| %>
 <div class="post">
@@ -6,4 +34,6 @@
     <p class="date"><%= blog.created_at.strftime("%B, %d, %Y") %></p>
     <p class="post-body"></p>
 </div>
-<% end %> 
+<% end %>
+</div><!-- END BLOG PAGE BODY DIV -->
+</body>

@@ -64,7 +64,7 @@ video{
 }
 
 /*ABOUT PAGE*/
-body{
+body .about{
     background-image: url('https://images.unsplash.com/reserve/D4zfsMrIT3i4Fuxqs5Gm_13129149325_7560b79cf2_o.jpg?q=80&fm=jpg&s=34a3377d80924c8d62104af2ea802e33');
     background-position:relative;
     background-size:cover;
@@ -84,4 +84,12 @@ body{
     text-align: justify;
     margin: 0 auto;
     width: 25em;
+}
+
+/*BLOG PAGE*/
+
+body .blog{
+    background-color: #ffffff;
+    background-attachment:fixed;
+    background-position:relative;
 }
