@@ -65,7 +65,7 @@ video{
 
 /*ABOUT PAGE*/
 body .about{
-    background-image: url('https://images.unsplash.com/reserve/D4zfsMrIT3i4Fuxqs5Gm_13129149325_7560b79cf2_o.jpg?q=80&fm=jpg&s=34a3377d80924c8d62104af2ea802e33');
+    background-image: url('http://res.cloudinary.com/lptbt4ovx/image/upload/v1446236320/video_camera-compressor_pbmbyi.jpg');
     background-position:relative;
     background-size:cover;
     min-height:100%;
@@ -86,10 +86,19 @@ body .about{
     width: 25em;
 }
 
-/*BLOG PAGE*/
+/*BLOG INDEX PAGE*/
 
 body .blog{
     background-color: #ffffff;
     background-attachment:fixed;
     background-position:relative;
+}
+
+.post{
+    text-align: center;
+    width: 50%;
+}
+
+.jumbotron{
+    
 }

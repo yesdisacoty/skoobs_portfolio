@@ -26,13 +26,19 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    
+    <div class="jumbotron">
+      <div class="container">
+        
+      </div>
+    </div>
     <br><br>
 
 <% @blogs.each do |blog| %>
 <div class="post">
     <h2><%= link_to blog.title, blog%></h2>
     <p class="date"><%= blog.created_at.strftime("%B, %d, %Y") %></p>
-    <p class="post-body"></p>
+    <p class="post-body"><%= truncate(blog.body, :length => 150)%></p>
 </div>
 <% end %>
 </div><!-- END BLOG PAGE BODY DIV -->
