@@ -1,8 +1,12 @@
+<!DOCTYPE html>
+
 <head>
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">  
+
 </head>
 <body>
-  <div class="blog">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,20 +30,24 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+<!-- END NAVIGATION -->
     
-    <div class="jumbotron">
-      <div class="container">
-        
-      </div>
+    <div class="jumbotron portfolio-jumbotron text-center">
+        <div class="container">
+            <br><br><br>
+            <h1>Joshua's Videos</h1>
+            <br><p>Joshua makes beautiful videos, and also news commercials.</p>
+        </div>
+    </div> 
+    
+    <% @videos.each do |video| %>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+        <p><%= video.title %></p>
+        <p><%= video.description %></p>
+        </div>
     </div>
-    <br><br>
-
-<% @blogs.each do |blog| %>
-<div class="post">
-    <h2><%= link_to blog.title, blog%></h2>
-    <p class="date"><%= blog.created_at.strftime("%B, %d, %Y") %></p>
-    <p class="post-body"><%= truncate(blog.body, :length => 150)%></p>
-</div>
-<% end %>
-</div><!-- END BLOG PAGE BODY DIV -->
+    <% end %>   
+    
 </body>
+</html>

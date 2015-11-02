@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/about" => "pages#about"
   resources :posts
   resources :blogs
+  resources :videos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
