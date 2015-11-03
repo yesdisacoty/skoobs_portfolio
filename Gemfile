@@ -29,10 +29,10 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # Use JQuery Turbolinks to have JQuery function normally while still using turbolinks
 gem 'jquery-turbolinks'
 
+gem "paperclip", "~> 4.3"
+
 #Use this gem for video uploading
 gem 'paperclip-av-transcoder'
-
-gem "paperclip", "~> 4.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
