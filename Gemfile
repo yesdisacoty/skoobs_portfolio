@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Bootstrap for CSS
 gem 'bootstrap-sass', '~> 3.3.5'
 
+#Use Font Awesome for icons and fonts
+gem 'font-awesome-sass'
+
 # Use JQuery Turbolinks to have JQuery function normally while still using turbolinks
 gem 'jquery-turbolinks'
 
