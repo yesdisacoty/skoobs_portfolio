@@ -15,120 +15,174 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
-
-@font-face{
-    font-family: LeagueGothic;
-    src: url('leaguegothic-regular-webfont');
-}
-
-@font-face{
-    font-family: QuickSand;
-    src: url('Quicksand-Regular');
-}
-
-
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 
 /*DRAWER NAVBAR*/
+$color-background: #F5F5F5;
+$color-main: #181818;
+$color-active: #FFF;
+$color-link: #FFF;
 
-.menu-collapsed {
-  transition:all .25s;
-  position:fixed;
-  top:10px;
-  left:9px;
-  height:36px;
-  width:36px;
-  z-index:1;
-  cursor:pointer;
-    ul {
-      transition:all .05s;
-      position:fixed;
-      left:-9000px;
-    }
-  }
-  .bar {
-    position:fixed;
-    left:12px;
-    top:24px;
-    height:6px;
-    width:30px;
-    border-radius:15px;
-    background-color:rgba(255,255,255,0.75);
-    &:before {
-      transition:all .25s;
-      content:"";
-      position:absolute;
-      left:0;
-      top:-8px;
-      height:6px;
-      width:30px;
-      border-radius:15px;
-      background-color:rgba(255,255,255,0.75);
-    }
-    &:after {
-      transition:all .25s;
-      content:"";
-      position:absolute;
-      left:0;
-      top:8px;
-      height:6px;
-      width:30px;
-      border-radius:15px;
-      background-color:rgba(255,255,255,0.75);
-    }
-  }
- 
+$button-height: 27px;
+$button-width: 35px;
 
-.menu-expanded {
-  transition:all .25s;
-  text-align:center;
-  line-height:100px;
-  height:100%;
-  width:100%;
-  border-radius:0px;
-  top:0;
-  left:0;
-  background-color:rgba(0,0,0,0.85);
-  ul {
-    transition:all .05s;
-    position:relative;
-    left:0;
-    z-index:2;
+body{
+  background: #252525;
+}
+
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: $button-height;
+  width: $button-width;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+  
+  &:hover {
+    opacity: .7;
   }
-  li{
-    position: relative;
-    padding: 0px;
-  }
-  a {
-    transition:all .15s;
-    text-decoration:none;
-    color:white;
-    font-size:2em;
-    font-family: 'Quicksand', sans-serif;
-    padding:5px;
-    &:hover {
-      transition:all .15s;
-      letter-spacing:2px;
+  
+  &.active {
+    .top {
+      transform: translateY(11px) translateX(0) rotate(45deg);
+      background: $color-active;
+    }
+    .middle {
+      opacity: 0;
+      background: $color-active;
+    }
+    
+    .bottom {
+      transform: translateY(-11px) translateX(0) rotate(-45deg);
+      background: $color-active;
     }
   }
-  .bar {
-    background-color:transparent;
-    transition:all .25s;
-    &:before {
-      transition:all .25s;
-      content:"";
-      transform:rotate(45deg);
-      top:-0px;
+  
+  span {
+  background: $color-main;
+  border: none;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:  all .35s ease;
+  cursor: pointer;
+    
+    &:nth-of-type(2) {
+      top: 11px;
     }
-    &:after {
-      transition:all .25s;
-      content:"";
-      transform:rotate(-45deg);
-      top:0px;
+    
+    &:nth-of-type(3) {
+      top: 22px;
     }
   }
 }
 
+.overlay {
+  position: fixed;
+  background: $color-main;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+  
+  &.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100%;
+    
+    li {
+      animation: fadeInRight .5s ease forwards;
+      animation-delay: .35s;
+      
+      &:nth-of-type(2) {
+        animation-delay: .4s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: .45s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: .50s;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%; 
+    
+    li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 4);
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+      
+      a {
+        display: block;
+        position: relative;
+        color: $color-link;
+        text-decoration: none;
+        overflow: hidden;
+        
+        &:hover:after,
+         &:focus:after,
+         &:active:after {
+           width: 100%;
+         }
+        
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          transform: translateX(-50%);
+          height: 3px;
+          background: $color-link;
+          transition: .35s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.quicksand{
+  font-family: 'Quicksand', sans-serif;
+}
 
 /*HOME PAGE VIDEO HEADER*/
 .header-container{
@@ -140,10 +194,11 @@
     border-right:none;
     position:fixed;
     padding:0px;
-    background-color: #6FA1A2;
+    background-color: #FFF;
 }
 
-.video-container{
+
+/*.video-container{
     position:absolute;
     top:0%;
     left:0%;
@@ -160,12 +215,12 @@ video{
     opacity:0.78;
     width:100%;
     
-}
+}*/
 
 .header-container h3{
     z-index:1;
     font-family:"Times New Roman";
-    color:#ffffff;
+    color:#6FA1A2;
     margin-top:20%;
     text-align:center;
 }
@@ -173,10 +228,13 @@ video{
 /*ABOUT PAGE*/
 body .about{
     background-image: url('http://res.cloudinary.com/lptbt4ovx/image/upload/v1446236320/video_camera-compressor_pbmbyi.jpg');
-    background-position:relative;
-    background-size:cover;
-    min-height:100%;
-    background-attachment:fixed;
+    background-position: relative;
+    background-size: cover;
+    min-height: 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+    -webkit-filter: grayscale(75%); /* Chrome, Safari, Opera */
+    filter: grayscale(75%);
 }
 
 .about-header-text{
@@ -184,6 +242,8 @@ body .about{
     text-align:center;
     font-family: 'Pacifico', cursive;
     size:large;
+    -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+    filter: grayscale(0%);
 }
 
 .about-body-text{
@@ -214,10 +274,13 @@ body .blog{
     
 }
 
-.jumbotron h1{
+.jumbotron-title{
     color: #ffffff;
-    font-family: 'LeagueGothic';
-    font-size: 100px;
+    font-family: 'QuickSand', sans-serif;
+    font-weight: 400;
+    font-size: 80px;
+    text-align: center;
+    letter-spacing: -3px;
 }
 
 .jumbotron h4{
@@ -256,4 +319,19 @@ body .blog{
   border: none;
   background-color: #252525;
   text-color: #FF9233;
+  height: 5em;
+}
+
+.contact-body{
+  background-color: #868686;
+}
+
+.comments-area{
+  height: 40em;
+
+}
+
+.form-control{
+  border: 0px, 0px, 10px, 0px;
+  background-color: #868686;
 }

@@ -16,3 +16,10 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$( document ).ready(function() {
+    $('#toggle').click(function() {
+   $(this).toggleClass('active');
+   $('#overlay').toggleClass('open');
+  });
+});

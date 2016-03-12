@@ -9,24 +9,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  
+      <%= yield %>
+  
+      <div class="button_container" id="toggle">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="bottom"></span>
+    </div>
+    
+    <div class="overlay" id="overlay">
+      <nav class="overlay-menu">
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Portfolio', videos_path %></li>
+          <li><%= link_to 'Blog', blogs_path %></li>
+          <li><%= link_to 'Contact', new_contact_path %></li>
+        </ul>
+      </nav>
+    </div>
 
 
-<div class="menu-collapsed">
-  <div class="bar"></div>
-<nav>
-  <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Portfolio', videos_path %></li>
-    <li><%= link_to 'Blog', blogs_path %></li>
-    <li><%= link_to 'Contact', new_contact_path %></li>
-  </ul>
-</nav>  
-</div>
  
 
 
-<%= yield %>
+
 
 
 
